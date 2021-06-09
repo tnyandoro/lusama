@@ -1,5 +1,5 @@
 class OrderDetailsController < ApplicationController
-  before_action :set_order_detail, only: %i[ show edit update destroy ]
+  before_action :set_order_detail, only: %i[show edit update destroy]
 
   # GET /order_details or /order_details.json
   def index
@@ -7,8 +7,7 @@ class OrderDetailsController < ApplicationController
   end
 
   # GET /order_details/1 or /order_details/1.json
-  def show
-  end
+  def show; end
 
   # GET /order_details/new
   def new
@@ -16,8 +15,7 @@ class OrderDetailsController < ApplicationController
   end
 
   # GET /order_details/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /order_details or /order_details.json
   def create
@@ -25,7 +23,7 @@ class OrderDetailsController < ApplicationController
 
     respond_to do |format|
       if @order_detail.save
-        format.html { redirect_to @order_detail, notice: "Order detail was successfully created." }
+        format.html { redirect_to @order_detail, notice: 'Order detail was successfully created.' }
         format.json { render :show, status: :created, location: @order_detail }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class OrderDetailsController < ApplicationController
   def update
     respond_to do |format|
       if @order_detail.update(order_detail_params)
-        format.html { redirect_to @order_detail, notice: "Order detail was successfully updated." }
+        format.html { redirect_to @order_detail, notice: 'Order detail was successfully updated.' }
         format.json { render :show, status: :ok, location: @order_detail }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,19 +49,20 @@ class OrderDetailsController < ApplicationController
   def destroy
     @order_detail.destroy
     respond_to do |format|
-      format.html { redirect_to order_details_url, notice: "Order detail was successfully destroyed." }
+      format.html { redirect_to order_details_url, notice: 'Order detail was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_order_detail
-      @order_detail = OrderDetail.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def order_detail_params
-      params.require(:order_detail).permit(:stock_keeping_unit, :quantity, :amount, :product_id, :order_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_order_detail
+    @order_detail = OrderDetail.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def order_detail_params
+    params.require(:order_detail).permit(:stock_keeping_unit, :quantity, :amount, :product_id, :order_id)
+  end
 end
