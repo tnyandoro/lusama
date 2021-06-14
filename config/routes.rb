@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :order_details
+  resources :users, only: %i[new create show]
+  # resources :order_details, only: %i[new create edit update index destroy]
   resources :orders
-  resources :customers
-  resources :products
+  resources :customers, except: %i[index]
+  resources :products, except: %i[index]
   resources :categories
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
