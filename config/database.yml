@@ -7,13 +7,13 @@ development:
   <<: *default
   database: lusama_development
   username: postgres
-  password: 'Def!n!te7'
+  password: '@#psql.org#$%'
 
 test:
   <<: *default
   database: lusama_test
   username: postgres
-  password: 'Def!n!te7'
+  password: '@#psql.org#$%'
 
 production:
   <<: *default
